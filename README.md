@@ -12,7 +12,30 @@ The __stack__ is an example of a FIFO data structure, with two operations: _push
 |--------------------------|-----------------------------------------------------------------------|
 | __Popping from a stack__ | ![pop](http://www.cse.scu.edu/~tschwarz/coen152_05/Images/wk6a2.JPG)  |
 
+For example, let's say we have the following program in C:
 
+```c
+void foo( int input ) {
+    char buffer[5];
+    printf("Hello!");
+}
+
+int main() {
+    foo( 1 );
+    return 0;
+}
+```
+
+The stack would look something like this:
+
+<table>
+  <tr><td>buffer[0] buffer[1] buffer[2] ...</td></tr>
+  <tr><td>argument of foo</td></tr>
+  <tr><td>address of return</td></tr>
+  <tr><td>stack before calling foo</td></tr>
+</table>
+
+When the function `foo` is called, the calling function's address of return (where the calling function is in memory) is pushed onto the stack. Zeroes are then pushed onto the stack for local variables--including the argument for `foo` and the characters in the `buffer` array.
 
 ## Programming Example
 
