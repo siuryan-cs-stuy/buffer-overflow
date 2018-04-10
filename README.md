@@ -1,8 +1,8 @@
 # buffer-overflow
 
-Cyan
-Ryan Siu, Connie Lei, Andrew Wong
-Period 9
+Cyan<br>
+Ryan Siu, Connie Lei, Andrew Wong<br>
+Period 9<br>
 
 ## What is buffer overflow?
 
