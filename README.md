@@ -1,5 +1,9 @@
 # buffer-overflow
 
+Cyan
+Ryan Siu, Connie Lei, Andrew Wong
+Period 9
+
 ## What is buffer overflow?
 
 A __buffer overflow__ is when user input to a program, while writing data to a __buffer__, causes the unintentional overwriting of adjacent memory. This can be exploited, termed a __buffer overflow attack__.
