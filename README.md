@@ -49,8 +49,11 @@ There are two code examples in the repository. Both of them worked on macOS High
 - wrong: non matching passwords within bounds to show what should happen when passwords do not match
 - over: non matching passwords exceeding bounds to show a buffer overflow example
 
-First option:
-Clone the repository. `cd` into the repository and run `make` to compile the both code examples. Test compiled code using redirection. 
+To compile:
+- Clone the repository. `cd` into the repository and run `make` to compile the both code examples. 
+- Copy the code below. Compile with `gcc -Wall -Wextra -O0 -g -fno-stack-protector buf.c -o buf` or `gcc -Wall -Wextra -O0 -g -fno-stack-protector test.c -o test`.
+
+To test:
 - `./buf` or `./test` and try different combinations
 - `./buf < over` and substiute over with the other two files
 The allowed length is 15, going over causes an overflow. The program breaks and allows permission where permission was not granted.
@@ -132,11 +135,28 @@ int main(void)
   return 0;
 }
 ```
+over
+```
+safepassword
+012345678901234567890
+```
+corrrect
+```
+safepass
+safepass
+```
+wrong
+```
+safepass
+notsafepass
+```
+
 `buf.c` on OS
 
 | __correct__   | ![correct](ss/correct.png) |
 |--------------------------|-----------------------------------------------------------------------|
 |     __wrong__ | ![wrong](ss/wrong.png)  |
+|||
 |      __over__ | ![over](ss/over.png)  |
 
 `test.c` on Windows
@@ -144,6 +164,7 @@ int main(void)
 | __correct__   | ![correct](ss/wcorrect.png) |
 |--------------------------|-----------------------------------------------------------------------|
 |     __wrong__ | ![wrong](ss/wwrong.png)  |
+|||
 |      __over__ | ![over](ss/wover.png)  |
 
 ## Real-life Attacks
