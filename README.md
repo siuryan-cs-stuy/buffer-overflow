@@ -156,7 +156,6 @@ notsafepass
 | __correct__   | ![correct](ss/correct.png) |
 |--------------------------|-----------------------------------------------------------------------|
 |     __wrong__ | ![wrong](ss/wrong.png)  |
-|||
 |      __over__ | ![over](ss/over.png)  |
 
 `test.c` on Windows
@@ -164,7 +163,6 @@ notsafepass
 | __correct__   | ![correct](ss/wcorrect.png) |
 |--------------------------|-----------------------------------------------------------------------|
 |     __wrong__ | ![wrong](ss/wwrong.png)  |
-|||
 |      __over__ | ![over](ss/wover.png)  |
 
 ## Real-life Attacks
