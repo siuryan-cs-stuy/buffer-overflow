@@ -167,6 +167,7 @@ notsafepass
 
 ## Real-life Attacks
 
+In real life, an attack would try to replace a return address with an address that points to malicious code. It only takes a small script to carry out the process.
 
 ### Examples in History
 
