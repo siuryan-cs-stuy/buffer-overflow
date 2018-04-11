@@ -43,7 +43,106 @@ When the function `foo` is called, the calling function's address of return (whe
 
 ## Programming Example
 
+There are two code examples in the repository. Both of them worked on macOS High Sierra v10.13.4. 
+`cbuf.c` did not work on Windows, but `test.c` did. It was not tested on Linux. In order to run the code, gcc is required. 
 
+First option:
+Clone the repository. `cd` into the repository and run `make` to compile the both code examples. The repository also holds three text files that can be used for ease of testing. 
+
+- correct: matching passwords within bounds to show what should happen when passwords match
+- wrong: non matching passwords within bounds to show what should happen when passwords do not match
+- over: non matching passwords exceeding bounds to show a buffer overflow example
+
+```c
+//buf.c
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+  char buff[15];
+  int pass = 0;
+  char tempbuff[15];
+  
+  printf("Enter a password of length between 1 and 15 characters:");
+  gets(buff);
+
+  printf("\nEnter your password:");
+  gets(tempbuff);
+
+  if(strcmp(tempbuff, buff))
+    {
+      printf ("\nWrong Password\n");
+    }
+  else
+    {
+      printf ("\nCorrect Password\n");
+      pass = 1;
+    }
+
+  if(pass)
+    printf ("\nRoot privileges given to the user \n");
+
+  return 0;
+}
+```
+```c
+//test.c
+#include <stdio.h>
+#include <string.h>
+
+struct app {
+  char buff[15];
+  char tempbuff[15];
+  int pass;
+};
+
+int main(void)
+{
+  struct app app;
+  app.pass = 0;
+
+  printf("\n Enter a password of length between 1 and 15 characters : \n");
+  gets(app.buff);
+  //strcpy("%s",buff);
+
+  printf("\n Enter your password : \n");
+  gets(app.tempbuff);
+  //strcpy("%s",tempbuff);
+
+  if(strcmp(app.tempbuff, app.buff))
+    {
+      printf ("\n Wrong Password \n");
+
+    }
+  else
+    {
+      printf ("\n Correct Password \n");
+      app.pass = 1;
+    }
+
+  if(app.pass)
+    {
+      /* Now Give root or admin rights to user*/
+      printf ("\n Root privileges given to the user \n");
+    }
+
+  return 0;
+}
+```
+`buf.c` on OS
+
+| __correct__   | ![correct](https://github.com/siuryan-cs-stuy/buffer-overflow/ss/correct.png) |
+|--------------------------|-----------------------------------------------------------------------|
+|     __wrong__ | ![wrong](https://github.com/siuryan-cs-stuy/buffer-overflow/ss/wrong.png)  |
+|      __over__ | ![over](https://github.com/siuryan-cs-stuy/buffer-overflow/ss/over.png)  |
+
+`test.c` on Windows
+
+| __correct__   | ![correct](https://github.com/siuryan-cs-stuy/buffer-overflow/ss/wcorrect.png) |
+|--------------------------|-----------------------------------------------------------------------|
+|     __wrong__ | ![wrong](https://github.com/siuryan-cs-stuy/buffer-overflow/ss/wwrong.png)  |
+|      __over__ | ![over](https://github.com/siuryan-cs-stuy/buffer-overflow/ss/wover.png)  |
 
 ## Real-life Attacks
 
