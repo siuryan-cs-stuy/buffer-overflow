@@ -158,7 +158,7 @@ notsafepass
 |     __wrong__ | ![wrong](ss/wrong.png)  |
 |      __over__ | ![over](ss/over.png)  |
 
-`test.c` on Windows
+`test.c` on Ubuntu
 
 | __correct__   | ![correct](ss/wcorrect.png) |
 |--------------------------|-----------------------------------------------------------------------|
