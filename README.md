@@ -132,17 +132,17 @@ int main(void)
 ```
 `buf.c` on OS
 
-| __correct__   | ![correct](https://github.com/siuryan-cs-stuy/buffer-overflow/master/ss/correct.png) |
+| __correct__   | ![correct](buffer-overflow/ss/correct.png) |
 |--------------------------|-----------------------------------------------------------------------|
-|     __wrong__ | ![wrong](https://github.com/siuryan-cs-stuy/buffer-overflow/master/ss/wrong.png)  |
-|      __over__ | ![over](https://github.com/siuryan-cs-stuy/buffer-overflow/master/ss/over.png)  |
+|     __wrong__ | ![wrong](buffer-overflow/ss/wrong.png)  |
+|      __over__ | ![over](buffer-overflow/ss/over.png)  |
 
 `test.c` on Windows
 
-| __correct__   | ![correct](https://github.com/siuryan-cs-stuy/buffer-overflow/master/ss/wcorrect.png) |
+| __correct__   | ![correct](buffer-overflow/ss/wcorrect.png) |
 |--------------------------|-----------------------------------------------------------------------|
-|     __wrong__ | ![wrong](https://github.com/siuryan-cs-stuy/buffer-overflow/master/ss/wwrong.png)  |
-|      __over__ | ![over](https://github.com/siuryan-cs-stuy/buffer-overflow/master/ss/wover.png)  |
+|     __wrong__ | ![wrong](buffer-overflow/ss/wwrong.png)  |
+|      __over__ | ![over](buffer-overflow/ss/wover.png)  |
 
 ## Real-life Attacks
 
