@@ -44,14 +44,16 @@ When the function `foo` is called, the calling function's address of return (whe
 ## Programming Example
 
 There are two code examples in the repository. Both of them worked on macOS High Sierra v10.13.4. 
-`cbuf.c` did not work on Windows, but `test.c` did. It was not tested on Linux. In order to run the code, gcc is required. 
-
-First option:
-Clone the repository. `cd` into the repository and run `make` to compile the both code examples. The repository also holds three text files that can be used for ease of testing. 
-
+`cbuf.c` did not work on Windows, but `test.c` did. It was not tested on Linux. In order to run the code, gcc is required. The repository also holds three text files that can be used for ease of testing. 
 - correct: matching passwords within bounds to show what should happen when passwords match
 - wrong: non matching passwords within bounds to show what should happen when passwords do not match
 - over: non matching passwords exceeding bounds to show a buffer overflow example
+
+First option:
+Clone the repository. `cd` into the repository and run `make` to compile the both code examples. Test compiled code using redirection. 
+- `./buf` or `./test` and try different combinations
+- `./buf < over` and substiute over with the other two files
+The allowed length is 15, going over causes an overflow. The program breaks and allows permission where permission was not granted.
 
 ```c
 //buf.c
