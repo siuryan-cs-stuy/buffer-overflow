@@ -216,6 +216,12 @@ The `heartbeat` request checks if two computers are still connected by exchangin
 
 Heartbleed is more of a reverse buffer overflow, known as a buffer overread, since it outputs data from adjacent memory, rather than taking an input that bleeds into adjacent memory.
 
-## Stack Protection
+## Countermeasures
 
+Some methods to protect against buffer overflow are address space layout randomization (ASLR), data execution prevention (DEP), and bounds checking.
 
+ASLR randomizes where executable programs are loaded into memory, making it harder for attacks to reliably reach adjacent memory where code can be executed.
+
+DEP flags certain parts of memory as "non-executable", meaning that exceptions are raised when there is an attempt to run code in these areas.
+
+Bounds checking ensures that the data is sanitized and does not exceed a certain length, preventing any code from being injected into adjacent memory and executed.
