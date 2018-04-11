@@ -170,7 +170,51 @@ notsafepass
 
 ### Examples in History
 
+#### Morris Worm
+The Morris worm, released from MIT on November 2, 1988, was one of the first computer worms. It was originally meant to gauge the size of the Internet rather than cause damage to computers, but a mistake in the code caused it to replicate itself excessively, resulting in computers crashing from being overloaded with processes. It exploited buffer overflow vulnerabilities in the Unix `finger` and `sendmail` protocols, allowing it to infect other computers running the Unix operating system.
 
+Following this incident, public attitudes towards computer security began to change. Password security also improved, as the worm utilized a simple dictionary of common words to guess passwords.
+
+#### Code Red
+
+Code Red was a malicious worm that targeted a buffer overflow vulnerability in Microsoft's Internet Info Services (IIS) web servers, infecting over 359,000 computers throughout July 2001. It ran entirely in memory, executing code from a GET request. Here is an example of the code used to spread it across networks:
+
+`
+GET /default.ida?NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN 
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN 
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN 
+NNNNNNNNNNNNNNNNNNNNNNNNNNN%u9090%u6858%ucbd3%u7801%u9090%u6858%ucb 
+d3%u7801%u9090%u6858%ucbd3%u7801%u9090%u9090%u8190%u00c3%u0003%u
+8b00%u531b%u53ff%u0078%u0000%u00=a 
+`
+
+It affected Windows NT and 2000 users and attempted to launch a DDoS attack against the White House's web servers. Depending on the day of the month, it would either try to propagate itself, send junk data to `www.whitehouse.gov`, or do nothing. 
+
+Microsoft released a patch that fixed the buffer overflow weakness in the IIS server a few days after the worm was discovered.
+
+#### Blaster Worm
+
+The Blaster worm attacked hundreds of thousands of Windows XP and 2000 users during August 2003, using a buffer overflow exploit in the Windows remote procedure call (RPC) interface. It spread through TCP port 135, easily infecting users without firewalls.
+
+Similarly to the Morris worm, it overloaded computers, causing them to crash. Firewalls became integrated into newer operating systems as a result of this attack, as Windows XP users previously had to install third-party firewall software to block unwanted connections.
+
+#### Heartbleed
+
+Heartbleed is a more recent example of vulnerabilities in open-source libraries. It is a weakness in OpenSSL, a widely-used encryption library, specifically its `heartbeat` request. This oversight, discovered in 2014, resulted in over 500,000 websites being compromised.
+
+The `heartbeat` request checks if two computers are still connected by exchanging a small packet of encrypted data between the two. The problem lies in one line of code:
+
+`memcpy(bp, pl, payload);`
+
+`bp` is where the data will be copied to
+
+`pl` is where the data is copied from
+
+`payload` is the length of the data that will be copied
+
+`memcpy` does not check whether the length of the data copied matches `payload`, so a malicious user could potentially receive sensitive data (e.g. passwords, private keys, cookies) by exploiting the command.
+
+Heartbleed is more of a reverse buffer overflow, known as a buffer overread, since it outputs data from adjacent memory, rather than taking an input that bleeds into adjacent memory.
 
 ## Stack Protection
 
